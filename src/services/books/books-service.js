@@ -23,8 +23,9 @@ export default class BooksService {
       b.cover = `${ process.env.API_HOST || request.server.info.uri }/images/${ b.cover }`;
     });
     if (keyword !== '') {
+      const lowerCasedKeyword = keyword.toLowerCase();
       books = books.filter(book => {
-        return book.title.indexOf(keyword) > 0 || book.synopsis.indexOf(keyword) > 0
+        return book.title.toLowerCase().indexOf(lowerCasedKeyword) > 0 || book.synopsis.toLowerCase().indexOf(lowerCasedKeyword) > 0
       });
     }
     const count = books.length;
