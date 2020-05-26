@@ -1,7 +1,8 @@
 # Reedsy Frontend Engineer challenge api server
 
 ### Overview
-This is a backend api server for q4 project.
+Backend api server for q4 project and hosted in https://reedsy-q4-api.herokuapp.com.
+
 The original version can be found in https://github.com/reedsy/challenges/tree/master/front-end/q4/server.
 
 Following features are added to the original version.
@@ -9,7 +10,7 @@ Following features are added to the original version.
 * search query in books list api
 * seed comments for book api
 
-### available routes
+### Available Routes
 ##### - `GET` `/books`
 query params
 ```
@@ -23,6 +24,14 @@ returns total count and book list
   "count": "number",
   "data": [Book]
 }
+```
+
+tests:
+```
+curl "https://reedsy-q4-api.herokuapp.com/books"
+curl "https://reedsy-q4-api.herokuapp.com/books?skip=0&take=3"
+curl "https://reedsy-q4-api.herokuapp.com/books?keyword=Great"
+curl "https://reedsy-q4-api.herokuapp.com/books?keyword=Great&skip=0&take=4"
 ```
 
 ##### - `GET` `/books/:slug`
@@ -48,6 +57,11 @@ BookComment schema
   "author": "string",
   "content": "string",
 }
+```
+
+tests:
+```
+curl "https://reedsy-q4-api.herokuapp.com/books/in-search-of-lost-time"
 ```
 
 ### Installation
