@@ -20,7 +20,7 @@ export default class BooksService {
     let booksList = JSON.parse(_readFile());
     let books = booksList.books;
     books.forEach(b => {
-      b.cover = `${ request.server.info.uri }/images/${ b.cover }`;
+      b.cover = `${ process.env.API_HOST || request.server.info.uri }/images/${ b.cover }`;
     });
     if (keyword !== '') {
       books = books.filter(book => {
