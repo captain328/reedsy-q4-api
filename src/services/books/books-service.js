@@ -24,9 +24,8 @@ export default class BooksService {
     });
     if (keyword !== '') {
       const lowerCasedKeyword = keyword.toLowerCase();
-      books = books.filter(book => {
-        return book.title.toLowerCase().indexOf(lowerCasedKeyword) > 0 || book.synopsis.toLowerCase().indexOf(lowerCasedKeyword) > 0
-      });
+      books = books.filter(book => book.title.toLowerCase().indexOf(lowerCasedKeyword) >= 0 ||
+          book.synopsis.toLowerCase().indexOf(lowerCasedKeyword) >= 0);
     }
     const count = books.length;
     const data = take === -1 ? books.slice(skip) : books.slice(skip, skip + take);
